@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movies</title>
+  <link rel="stylesheet" href="/css/style.css"> <!-- Optioneel: jouw eigen CSS -->
+</head>
+<body>
+  <%- include('partials/nav') %>
+
+  <h1>All Movies</h1>
+
+  <form method="GET" action="/movies">
+    <input type="text" name="filter" placeholder="Filter op naam..." value="<%= filter ?? '' %>"/>
+    <button type="submit">Filter</button>
+  </form>
+
+  <table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+      <tr>
+        <th><a href="?sort=name">Name</a></th>
+        <th>Releasejaar</th>
+        <th>Genre</th>
+        <th>Populair</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% movies.forEach((movie) => { %>
+        <tr>
+          <td><%= movie.name %></td>
+          <td><%= movie.releaseYear %></td>
+          <td><%= movie.genre %></td>
+          <td><%= movie.isPopular ? '✅' : '❌' %></td>
+          <td><a href="/movies/<%= movie.id %>">view</a></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Regisseurs</title>
+</head>
+<body>
+  <%- include('partials/nav') %>
+
+  <h1>Alle Regisseurs</h1>
+
+  <form method="GET" action="/directors">
+    <input type="text" name="filter" placeholder="Filter op naam..." value="<%= filter ?? '' %>"/>
+    <button type="submit">Filter</button>
+  </form>
+
+  <table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+      <tr>
+        <th><a href="?sort=name">Naam</a></th>
+        <th>Leeftijd</th>
+        <th>Nationaliteit</th>
+        <th>Actief</th>
+        <th>Bekijk</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% directors.forEach((dir) => { %>
+        <tr>
+          <td><%= dir.name %></td>
+          <td><%= dir.age %></td>
+          <td><%= dir.nationality %></td>
+          <td><%= dir.isActive ? '✅' : '❌' %></td>
+          <td><a href="/directors/<%= dir.id %>">Bekijk</a></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>

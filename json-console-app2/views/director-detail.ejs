@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= director.name %> - Regisseur</title>
+</head>
+<body>
+  <%- include('partials/nav') %>
+
+  <h1><%= director.name %></h1>
+  <img src="<%= director.imageUrl %>" alt="Foto van <%= director.name %>" width="300" />
+
+  <p><strong>Nationaliteit:</strong> <%= director.nationality %></p>
+  <p><strong>Leeftijd:</strong> <%= director.age %> jaar</p>
+  <p><strong>Actief:</strong> <%= director.isActive ? '✅' : '❌' %></p>
+  <p><strong>Beschrijving:</strong> <%= director.description %></p>
+  <p><strong>Awards:</strong> <%= director.awards.join(', ') %></p>
+
+  <!-- <h3>🏢 Filmmaatschappij</h3>
+  <p>
+    <strong>Naam:</strong> <%= director.filmCompany.name %><br />
+    <strong>Opgericht:</strong> <%= director.filmCompany.foundedYear %><br />
+    <strong>Oprichter:</strong> <%= director.filmCompany.founder %><br />
+    <strong>Hoofdkwartier:</strong> <%= director.filmCompany.headquarters %><br />
+    <img src="<%= director.filmCompany.logoUrl %>" alt="Logo" width="150">
+  </p> -->
+
+  <h3>🎬 Films van deze regisseur:</h3>
+  <ul>
+    <% movies.forEach((movie) => { %>
+      <li>
+        <a href="/movies/<%= movie.id %>"><%= movie.name %></a>
+      </li>
+    <% }) %>
+  </ul>
+
+</body>
+</html>
