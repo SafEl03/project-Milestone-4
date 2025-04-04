@@ -1,4 +1,3 @@
-// src/interfaces.ts
 
 
 export interface FilmCompany {

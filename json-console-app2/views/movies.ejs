@@ -2,41 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Movies</title>
-  <link rel="stylesheet" href="/css/style.css"> <!-- Optioneel: jouw eigen CSS -->
+  <title>Films</title>
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
   <%- include('partials/nav') %>
 
-  <h1>All Movies</h1>
+  <main style="margin-left: 200px; padding: 2rem;">
 
-  <form method="GET" action="/movies">
-    <input type="text" name="filter" placeholder="Filter op naam..." value="<%= filter ?? '' %>"/>
-    <button type="submit">Filter</button>
-  </form>
+    <h1>Alle Films</h1>
 
-  <table border="1" cellpadding="8" cellspacing="0">
-    <thead>
-      <tr>
-        <th><a href="?sort=name">Name</a></th>
-        <th>Releasejaar</th>
-        <th>Genre</th>
-        <th>Populair</th>
-        <th>Details</th>
-      </tr>
-    </thead>
-    <tbody>
+    <!-- Filter formulier -->
+    <form method="GET" action="/movies">
+      <input type="text" name="filter" placeholder="Filter op naam..." value="<%= filter ?? '' %>" />
+      <button type="submit">Filter</button>
+    </form>
+
+    <!-- Sorteerbare kolom-links -->
+    <div class="sort-options">
+      <p>Sorteren op:
+        <a href="?sort=name">Naam</a> |
+        <a href="?sort=releaseYear">Releasejaar</a> |
+        <a href="?sort=genre">Genre</a> |
+        <a href="?sort=isPopular">Populair</a>
+      </p>
+    </div>
+
+    <!-- Movie cards -->
+    <div class="movie-grid">
       <% movies.forEach((movie) => { %>
-        <tr>
-          <td><%= movie.name %></td>
-          <td><%= movie.releaseYear %></td>
-          <td><%= movie.genre %></td>
-          <td><%= movie.isPopular ? '✅' : '❌' %></td>
-          <td><a href="/movies/<%= movie.id %>">view</a></td>
-        </tr>
+        <div class="movie-card">
+          <img src="<%= movie.imageUrl %>" alt="<%= movie.name %> poster" />
+          <h2><%= movie.name %></h2>
+          <p><strong>Genre:</strong> <%= movie.genre %></p>
+          <p><strong>Jaar:</strong> <%= movie.releaseYear %></p>
+          <p><strong>Populair:</strong> <%= movie.isPopular ? '✅' : '❌' %></p>
+          <a class="button" href="/movies/<%= movie.id %>">Bekijk</a>
+        </div>
       <% }) %>
-    </tbody>
-  </table>
+    </div>
+  </main>
 </body>
 </html>

@@ -3,25 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <title><%= movie.name %> - Detail</title>
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
   <%- include('partials/nav') %>
 
-  <h1><%= movie.name %> (<%= movie.releaseYear %>)</h1>
-  <img src="<%= movie.imageUrl %>" alt="Movie Poster" width="300" />
+  <main style="margin-left: 200px; padding: 2rem;">
+    <h1><%= movie.name %> (<%= movie.releaseYear %>)</h1>
 
-  <p><strong>Beschrijving:</strong> <%= movie.description %></p>
-  <p><strong>Genre:</strong> <%= movie.genre %></p>
-  <p><strong>Populair:</strong> <%= movie.isPopular ? '✅' : '❌' %></p>
-  <p><strong>Release Datum:</strong> <%= movie.releaseDate %></p>
-  <p><strong>Acteurs:</strong> <%= movie.actors.join(', ') %></p>
+    <div class="movie-card" style="max-width: 600px; text-align: left;">
+      <img src="<%= movie.imageUrl %>" class="poster-img" alt="Poster van <%= movie.name %>" style="width: 100%; border-radius: 10px;" />
 
-  <h3>🎬 Regisseur:</h3>
-  <p>
-    <strong>Naam:</strong> <%= movie.director.name %><br />
-    <strong>Nationaliteit:</strong> <%= movie.director.nationality %><br />
-    <strong>Awards:</strong> <%= movie.director.awards %><br />
-    <a href="/directors/<%= movie.director.id %>">Bekijk regisseur</a>
-  </p>
+      <p><strong>Beschrijving:</strong> <%= movie.description %></p>
+      <p><strong>Genre:</strong> <%= movie.genre %></p>
+      <p><strong>Populair:</strong> <%= movie.isPopular ? '✅' : '❌' %></p>
+      <p><strong>Release datum:</strong> <%= movie.releaseDate %></p>
+      <p><strong>Acteurs:</strong> <%= movie.actors.join(', ') %></p>
+
+      <hr />
+
+      <h3>🎬 Regisseur</h3>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <img src="<%= movie.director.imageUrl %>" alt="Foto van <%= movie.director.name %>" style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%;" />
+        <div>
+          <p><strong>Naam:</strong> <%= movie.director.name %></p>
+          <p><strong>Nationaliteit:</strong> <%= movie.director.nationality %></p>
+          <p><strong>Awards (aantal):</strong> <%= movie.director.awards %></p>
+          <a class="button" href="/directors/<%= movie.director.id %>">Bekijk Regisseur</a>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
+
