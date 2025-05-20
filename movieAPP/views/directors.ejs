@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Regisseurs</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <%- include('partials/nav') %>
+
+  <main style="margin-left: 200px; padding: 2rem;">
+
+    <h1>Alle Regisseurs</h1>
+
+
+    <form method="GET" action="/directors">
+      <input type="text" name="filter" placeholder="Filter op naam..." value="<%= filter ?? '' %>" />
+      <button type="submit">Filter</button>
+    </form>
+
+  
+    <div class="sort-options">
+      <p>Sorteren op:
+        <a href="?sort=name">Naam</a> |
+        <a href="?sort=age">Leeftijd</a> |
+        <a href="?sort=nationality">Nationaliteit</a> |
+        <a href="?sort=isActive">Actief</a>
+      </p>
+    </div>
+
+
+    <div class="movie-grid">
+      <% directors.forEach((dir) => { %>
+        <div class="movie-card">
+          <img src="<%= dir.imageUrl %>" alt="<%= dir.name %> foto" />
+          <h2><%= dir.name %></h2>
+          <p><strong>Leeftijd:</strong> <%= dir.age %> jaar</p>
+          <p><strong>Nationaliteit:</strong> <%= dir.nationality %></p>
+          <p><strong>Actief:</strong> <%= dir.isActive ? '✅' : '❌' %></p>
+          <a class="button" href="/directors/<%= dir.id %>">Bekijk</a>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+</body>
+</html>

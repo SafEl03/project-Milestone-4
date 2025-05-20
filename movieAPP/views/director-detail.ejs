@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= director.name %> - Regisseur</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <%- include('partials/nav') %>
+
+  <main style="margin-left: 200px; padding: 2rem;">
+    <h1><%= director.name %></h1>
+
+    <div class="movie-card" style="max-width: 700px; text-align: left;">
+
+      
+      <div style="text-align: center;">
+        <img 
+          src="<%= director.imageUrl %>" 
+          alt="<%= director.name %>" 
+          class="profile-img"
+        />
+      </div>
+
+      <p><strong>Beschrijving:</strong> <%= director.description %></p>
+      <p><strong>Leeftijd:</strong> <%= director.age %> jaar</p>
+      <p><strong>Actief:</strong> <%= director.isActive ? '✅' : '❌' %></p>
+      <p><strong>Geboortedatum:</strong> <%= director.birthDate %></p>
+      <p><strong>Nationaliteit:</strong> <%= director.nationality %></p>
+      <p><strong>Awards:</strong> <%= director.awards.join(', ') %></p>
+      <p><strong>Bekende Films:</strong> <%= director.notableMovies.join(', ') %></p>
+
+      <hr />
+
+      <!-- <h3>🏢 Filmmaatschappij</h3>
+      <p><strong>Naam:</strong> <%= director.filmCompany.name %></p>
+      <p><strong>Opgericht:</strong> <%= director.filmCompany.foundedYear %></p>
+      <p><strong>Oprichter:</strong> <%= director.filmCompany.founder %></p>
+      <p><strong>Hoofdkwartier:</strong> <%= director.filmCompany.headquarters %></p>
+      <img 
+        src="<%= director.filmCompany.logoUrl %>" 
+        alt="Logo van <%= director.filmCompany.name %>" 
+        style="width: 120px; margin-top: 0.5rem;"
+      />
+
+      <hr /> -->
+
+      <h3>🎬 Films van deze regisseur</h3>
+      <% if (movies.length > 0) { %>
+        <ul>
+          <% movies.forEach((movie) => { %>
+            <li>
+              <a href="/movies/<%= movie.id %>"><%= movie.name %></a>
+            </li>
+          <% }) %>
+        </ul>
+      <% } else { %>
+        <p><em>Geen films gevonden.</em></p>
+      <% } %>
+
+    </div>
+  </main>
+</body>
+</html>
+

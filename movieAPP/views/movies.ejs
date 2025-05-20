@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Films</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <%- include('partials/nav') %>
+
+  <main style="margin-left: 200px; padding: 2rem;">
+
+    <h1>Alle Films</h1>
+
+    <!-- Filter formulier -->
+    <form method="GET" action="/movies">
+      <input type="text" name="filter" placeholder="Filter op naam..." value="<%= filter ?? '' %>" />
+      <button type="submit">Filter</button>
+    </form>
+
+    <!-- Sorteerbare kolom-links -->
+    <div class="sort-options">
+      <p>Sorteren op:
+        <a href="?sort=name">Naam</a> |
+        <a href="?sort=releaseYear">Releasejaar</a> |
+        <a href="?sort=genre">Genre</a> |
+        <a href="?sort=isPopular">Populair</a>
+      </p>
+    </div>
+
+    <!-- Movie cards -->
+    <div class="movie-grid">
+      <% movies.forEach((movie) => { %>
+        <div class="movie-card">
+          <img src="<%= movie.imageUrl %>" alt="<%= movie.name %> poster" />
+          <h2><%= movie.name %></h2>
+          <p><strong>Genre:</strong> <%= movie.genre %></p>
+          <p><strong>Jaar:</strong> <%= movie.releaseYear %></p>
+          <p><strong>Populair:</strong> <%= movie.isPopular ? '✅' : '❌' %></p>
+          <a class="button" href="/movies/<%= movie.id %>">Bekijk</a>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+</body>
+</html>
