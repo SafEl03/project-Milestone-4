@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+
+  <main style="margin-left: 200px; padding: 2rem;">
+    
+
+    <div class="detail-card">
+      <h1><%= movie.name %> (<%= movie.releaseYear %>)</h1>
+      <img src="<%= movie.imageUrl %>" class="poster-img" alt="Poster van <%= movie.name %>" style="width: 100%; border-radius: 10px;" />
+
+      <p><strong>Beschrijving:</strong> <%= movie.description %></p>
+      <p><strong>Genre:</strong> <%= movie.genre %></p>
+      <p><strong>Populair:</strong> <%= movie.isPopular ? '✅' : '❌' %></p>
+      <p><strong>Release datum:</strong> <%= movie.releaseDate %></p>
+      <p><strong>Acteurs:</strong> <%= movie.actors.join(', ') %></p>
+      <% if (user?.role === "ADMIN") { %>
+      <div class="button-center">
+        <a href="/movies/<%= movie.id %>/edit" class="btn btn-secondary">Bewerken</a>
+      </div>
+      <% } %>
+
+      <hr />
+
+      <h3>🎬 Regisseur</h3>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <img src="<%= movie.director.imageUrl %>" alt="Foto van <%= movie.director.name %>" style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%;" />
+        <div>
+          <p><strong>Naam:</strong> <%= movie.director.name %></p>
+          <p><strong>Nationaliteit:</strong> <%= movie.director.nationality %></p>
+          <p><strong>Awards (aantal):</strong> <%= movie.director.awards %></p>
+
+        </div>
+      </div>
+      <div class="button-center">
+            <a class="btn btn-primary" href="/directors/<%= movie.director.id %>">Bekijk Regisseur</a>
+        </div>
+
+    </div>
+  </main>
+
+<%- include('partials/footer') %>

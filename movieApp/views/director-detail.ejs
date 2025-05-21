@@ -1,0 +1,66 @@
+<%- include('partials/header') %>
+
+  <main style="margin-left: 200px; padding: 2rem;">
+    
+
+    <div class="detail-card">
+
+<h1><%= director.name %></h1>
+      
+      
+       <div class="center">
+        <img 
+          src="<%= director.imageUrl %>" 
+          alt="<%= director.name %>" 
+          class="profile-img"
+        />
+      </div>
+
+      <p><strong>Beschrijving:</strong> <%= director.description %></p>
+      <p><strong>Leeftijd:</strong> <%= director.age %> jaar</p>
+      <p><strong>Actief:</strong> <%= director.isActive ? '✅' : '❌' %></p>
+      <p><strong>Geboortedatum:</strong> <%= director.birthDate %></p>
+      <p><strong>Nationaliteit:</strong> <%= director.nationality %></p>
+      <p><strong>Awards:</strong> <%= director.awards.join(', ') %></p>
+      <p><strong>Bekende Films:</strong> <%= director.notableMovies.join(', ') %></p>
+
+      <hr />
+
+      <!-- <h3> Filmmaatschappij</h3>
+      <p><strong>Naam:</strong> <%= director.filmCompany.name %></p>
+      <p><strong>Opgericht:</strong> <%= director.filmCompany.foundedYear %></p>
+      <p><strong>Oprichter:</strong> <%= director.filmCompany.founder %></p>
+      <p><strong>Hoofdkwartier:</strong> <%= director.filmCompany.headquarters %></p>
+      <img 
+        src="<%= director.filmCompany.logoUrl %>" 
+        alt="Logo van <%= director.filmCompany.name %>" 
+        style="width: 120px; margin-top: 0.5rem;"
+      />
+
+      <hr /> -->
+
+      <h3>🎬 Films van deze regisseur</h3>
+      <% if (movies.length > 0) { %>
+       <div class="movie-grid">
+  <% movies.forEach((movie) => { %>
+    <div class="movie-card">
+      <a href="/movies/<%= movie.id %>" class="link-no-style">
+        <img src="<%= movie.imageUrl %>" alt="<%= movie.name %>" class="poster-img" />
+        <div style="margin-top: 0.5rem;">
+          <h2 style="font-size: 1.1rem; text-align: center;"><%= movie.name %></h2>
+        </div>
+      </a>
+    </div>
+  <% }) %>
+</div>
+
+</div>
+
+      <% } else { %>
+        <p><em>Geen films gevonden.</em></p>
+      <% } %>
+
+    </div>
+  </main>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,61 @@
+<%- include('partials/header') %>
+
+<main style="margin-left: 200px; padding: 2rem;">
+
+  <h1>Alle Regisseurs</h1>
+
+
+<form method="GET" action="/directors" class="movie-filter-form">
+  <input
+    type="text"
+    name="filter"
+    placeholder="Filter op naam..."
+    value="<%= filter ?? '' %>"
+  />
+
+  <select name="sort" onchange="this.form.submit()">
+    <option value="">Sorteer op...</option>
+    <option value="name" <%= sort === 'name' ? 'selected' : '' %>>Naam</option>
+    <option value="age" <%= sort === 'age' ? 'selected' : '' %>>Leeftijd</option>
+    <option value="nationality" <%= sort === 'nationality' ? 'selected' : '' %>>Nationaliteit</option>
+    <option value="isActive" <%= sort === 'isActive' ? 'selected' : '' %>>Actief</option>
+  </select>
+</form>
+
+
+
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th>Foto</th>
+      <th>Naam</th>
+      <th>Bekende Films</th>
+      <th>Leeftijd</th>
+      <th>Nationaliteit</th>
+      <th>Actief</th>
+      <th>Acties</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% directors.forEach((dir) => { %>
+      <tr>
+        <td>
+          <img src="<%= dir.imageUrl %>" alt="Foto van <%= dir.name %>" class="table-poster" />
+        </td>
+        <td><%= dir.name %></td>
+        <td><%= dir.notableMovies.join(', ') %></td>
+        <td><%= dir.age %> jaar</td>
+        <td><%= dir.nationality %></td>
+        <td><%= dir.isActive ? '✅' : '❌' %></td>
+        <td>
+          <a class="btn btn-primary" href="/directors/<%= dir.id %>">Bekijk</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+
+</main>
+
+<%- include('partials/footer') %>

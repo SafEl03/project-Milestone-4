@@ -1,0 +1,234 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* === Navigatiebalk === */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 180px;
+  background-color: #f0f0f0;
+  padding: 1rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin-bottom: 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #007BFF;
+}
+
+/* === Zoekformulier stijlen === */
+.movie-filter-form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.movie-filter-form input[type="text"],
+.movie-filter-form select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* === Tabel met films === */
+.movie-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.movie-table td {
+  padding: 1.2rem 1rem;
+  height: 100px;
+  vertical-align: middle;
+  border-bottom: 1px solid #eee;
+}
+
+.movie-table th {
+  padding: 0.8rem 1rem;
+  background-color: #f8f8f8;
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.table-poster {
+  width: 120px;
+  height: 100px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* === Knoppen === */
+.btn-group {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.btn {
+  min-width: 90px;
+  text-align: center;
+  padding: 8px 12px;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.button-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+
+/* === Links zonder opmaak === */
+a.link-no-style {
+  color: inherit;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+a.link-no-style:hover {
+  text-decoration: underline;
+  color: #007bff;
+}
+
+/* === Tabel stijlen regisseurs === */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.styled-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.styled-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* === Afbeeldingen === */
+.poster-img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.profile-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* === Formulieren === */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  gap: 10px;
+}
+
+.edit-form input,
+.edit-form select {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.edit-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+
+.detail-card {
+  background-color: #fff;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.detail-card img {
+  border-radius: 10px;
+  margin: 1rem 0;
+}
