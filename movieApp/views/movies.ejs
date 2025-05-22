@@ -3,7 +3,7 @@
 
 
 
-  <main style="margin-left: 200px; padding: 2rem;">
+  <main >
 
     <h1>Alle Films</h1>
 
@@ -26,7 +26,7 @@
   </select>
 </form>
 
-<table class="movie-table">
+<table class="movie-table desktop-only">
   <thead>
     <tr>
       <th>Poster</th>
@@ -42,32 +42,36 @@
   <tbody>
     <% movies.forEach((movie) => { %>
       <tr>
-        <td>
-          <img src="<%= movie.imageUrl %>" alt="<%= movie.name %> poster" class="table-poster" />
-        </td>
+        <td><img src="<%= movie.imageUrl %>" alt="<%= movie.name %> poster" class="table-poster" /></td>
         <td><%= movie.name %></td>
-        <td>
-          <a href="/directors/<%= movie.director.id %>" class="link-no-style">
-            <%= movie.director.name %>
-          </a>
-        </td>
-
+        <td><a href="/directors/<%= movie.director.id %>" class="link-no-style"><%= movie.director.name %></a></td>
         <td><%= movie.actors.join(', ') %></td>
         <td><%= movie.genre %></td>
         <td><%= movie.releaseYear %></td>
         <td><%= movie.isPopular ? "✅" : "❌" %></td>
        <td class="btn-group">
-          <a class="btn btn-primary" href="/movies/<%= movie.id %>">Bekijk</a>
-        <% if (user?.role === "ADMIN") { %>
-          <a class="btn btn-secondary" href="/movies/<%= movie.id %>/edit">Bewerken</a>
-        <% } %>
-        </td>
+  <a class="btn btn-primary" href="/movies/<%= movie.id %>">Bekijk</a>
+  <% if (user?.role === "ADMIN") { %>
+    <a class="btn btn-secondary" href="/movies/<%= movie.id %>/edit">Bewerken</a>
+  <% } else { %>
+    <span class="btn-placeholder"></span>
+  <% } %>
+</td>
 
       </tr>
     <% }) %>
   </tbody>
 </table>
-
+<!-- MOBIELE WEERGAVE -->
+<div class="movie-cards mobile-only">
+  <% movies.forEach((movie) => { %>
+    <a href="/movies/<%= movie.id %>" class="movie-card-mobile">
+      <img src="<%= movie.imageUrl %>" alt="<%= movie.name %> poster" />
+      <h3><%= movie.name %></h3>
+      <button class="btn btn-primary">Bekijk</button>
+    </a>
+  <% }) %>
+</div>
 
     
   </main>

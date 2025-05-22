@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Films</title>
   <link rel="stylesheet" href="/css/style.css" />
   <script src="/js/script.js" defer></script>
@@ -16,7 +17,19 @@
 </head>
 <body>
 <header>
+  <!-- Hamburger-knop buiten navigatie -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+  
+
+  <!-- Navigatie zijkant -->
   <nav class="navbar">
+    <!-- Sluitknop bovenaan in de zijbalk -->
+    <div class="close-btn" onclick="toggleMenu()">
+      <i class="fas fa-times"></i>
+    </div>
+
     <ul class="nav-links" id="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="/movies">Films</a></li>
@@ -31,5 +44,7 @@
     </ul>
   </nav>
 </header>
+
+
 
 

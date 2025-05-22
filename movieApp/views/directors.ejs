@@ -1,6 +1,6 @@
 <%- include('partials/header') %>
 
-<main style="margin-left: 200px; padding: 2rem;">
+<main>
 
   <h1>Alle Regisseurs</h1>
 
@@ -24,7 +24,7 @@
 
 
 
-<table class="styled-table">
+<table class="styled-table desktop-only">
   <thead>
     <tr>
       <th>Foto</th>
@@ -39,9 +39,7 @@
   <tbody>
     <% directors.forEach((dir) => { %>
       <tr>
-        <td>
-          <img src="<%= dir.imageUrl %>" alt="Foto van <%= dir.name %>" class="table-poster" />
-        </td>
+        <td><img src="<%= dir.imageUrl %>" alt="Foto van <%= dir.name %>" class="table-poster" /></td>
         <td><%= dir.name %></td>
         <td><%= dir.notableMovies.join(', ') %></td>
         <td><%= dir.age %> jaar</td>
@@ -55,7 +53,15 @@
   </tbody>
 </table>
 
-
+<div class="director-cards mobile-only">
+  <% directors.forEach((dir) => { %>
+    <a href="/directors/<%= dir.id %>" class="director-card-mobile">
+      <img src="<%= dir.imageUrl %>" alt="<%= dir.name %>" />
+      <h3><%= dir.name %></h3>
+      <button class="btn btn-primary">Bekijk</button>
+    </a>
+  <% }) %>
+</div>
 </main>
 
 <%- include('partials/footer') %>

@@ -1,3 +1,9 @@
+/* === BASISINSTELLINGEN === */
+html {
+  font-size: 16px;
+  /* 1rem = 16px */
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -5,16 +11,31 @@ body {
   background-color: #f4f4f4;
 }
 
-/* === Navigatiebalk === */
+/* === HAMBURGER MENU KNOP === */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* === Sluitknop binnen het zijmenu (mobiel) === */
+.close-btn {
+  display: none;
+  font-size: 1.8rem;
+  text-align: right;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+/* === NAVIGATIE (DESKTOP LINKS, MOBIEL VERBORGEN) === */
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
+  width: 11.25rem;
   height: 100vh;
-  width: 180px;
   background-color: #f0f0f0;
   padding: 1rem;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  float: left;
 }
 
 .nav-links {
@@ -37,7 +58,13 @@ body {
   color: #007BFF;
 }
 
-/* === Zoekformulier stijlen === */
+/* === MAIN (LAYOUT-RUIMTE NAAST NAVIGATIE) === */
+main {
+  margin-left: 11.5rem;
+  padding: 2.5rem;
+}
+
+/* === ZOEKFORMULIER (FILTER + SORTERING) === */
 .movie-filter-form {
   display: flex;
   gap: 1rem;
@@ -48,59 +75,85 @@ body {
 .movie-filter-form input[type="text"],
 .movie-filter-form select {
   padding: 0.5rem;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   border: 1px solid #ccc;
   font-size: 1rem;
 }
 
-/* === Tabel met films === */
-.movie-table {
+/* === TABEL: FILMS EN REGISSEURS === */
+.movie-table,
+.styled-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 2rem;
-  font-size: 0.95rem;
   background-color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
   overflow: hidden;
 }
 
-.movie-table td {
-  padding: 1.2rem 1rem;
-  height: 100px;
-  vertical-align: middle;
+.movie-table th,
+.styled-table th,
+.movie-table td,
+.styled-table td {
+  padding: 1rem;
+  text-align: left;
   border-bottom: 1px solid #eee;
 }
 
-.movie-table th {
-  padding: 0.8rem 1rem;
-  background-color: #f8f8f8;
-  text-align: left;
+.movie-table th,
+.styled-table th {
+  background-color: #f5f5f5;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 0.875rem;
+}
+
+.styled-table tr:hover {
+  background-color: #f9f9f9;
 }
 
 .table-poster {
-  width: 120px;
-  height: 100px;
-  border-radius: 6px;
+  width: 7.5rem;
+  height: 6.25rem;
+  border-radius: 0.375rem;
   object-fit: cover;
 }
 
-/* === Knoppen === */
+/* === POSTERS & PROFIELAFBEELDINGEN === */
+.poster-img {
+  width: 100%;
+  max-height: 12.5rem;
+  object-fit: contain;
+  border-radius: 0.625rem;
+}
+
+.profile-img {
+  width: 12.5rem;
+  height: 12.5rem;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* === KNOPPEN (ALGEMEEN EN IN TABELLEN) === */
 .btn-group {
-  display: flex;
+  /* display: flex; */
   gap: 0.5rem;
   justify-content: flex-start;
   align-items: center;
 }
 
+.btn-group a.btn {
+  margin: 0.5rem;
+}
+
 .btn {
-  min-width: 90px;
+  min-width: 5.625rem;
   text-align: center;
-  padding: 8px 12px;
+  padding: 0.5rem 0.75rem;
   font-weight: bold;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   text-decoration: none;
   display: inline-block;
   font-size: 0.9rem;
@@ -132,7 +185,7 @@ body {
 }
 
 
-/* === Links zonder opmaak === */
+/* === LINKS ZONDER OPMAAK === */
 a.link-no-style {
   color: inherit;
   text-decoration: none;
@@ -144,73 +197,28 @@ a.link-no-style:hover {
   color: #007bff;
 }
 
-/* === Tabel stijlen regisseurs === */
-.styled-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
-  background-color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.styled-table th,
-.styled-table td {
-  padding: 1rem;
-  text-align: left;
-  border-bottom: 1px solid #eee;
-}
-
-.styled-table th {
-  background-color: #f5f5f5;
-  font-weight: bold;
-}
-
-.styled-table tr:hover {
-  background-color: #f9f9f9;
-}
-
-/* === Afbeeldingen === */
-.poster-img {
-  width: 100%;
-  max-height: 200px;
-  object-fit: contain;
-  border-radius: 10px;
-  text-align: left;
-}
-
-.profile-img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto;
-}
-
-/* === Formulieren === */
+/* === BEWERKFORMULIER (movie-edit.ejs) === */
 .edit-form {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
-  gap: 10px;
+  max-width: 31.25rem;
+  gap: 0.625rem;
 }
 
 .edit-form input,
 .edit-form select {
-  padding: 8px;
-  border-radius: 5px;
+  padding: 0.5rem;
+  border-radius: 0.3125rem;
   border: 1px solid #ccc;
 }
 
 .edit-button {
   display: inline-block;
-  margin-top: 20px;
-  padding: 8px 16px;
+  margin-top: 1.25rem;
+  padding: 0.5rem 1rem;
   background-color: #007bff;
   color: white;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   text-decoration: none;
 }
 
@@ -218,17 +226,251 @@ a.link-no-style:hover {
   background-color: #0056b3;
 }
 
-
+/* === DETAIL CARDS (movie-detail.ejs, director-detail.ejs) === */
 .detail-card {
   background-color: #fff;
-  max-width: 700px;
+  max-width: 43.75rem;
   margin: 2rem auto;
   padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.1);
 }
 
 .detail-card img {
-  border-radius: 10px;
+  border-radius: 0.625rem;
   margin: 1rem 0;
+}
+
+/* === RESPONSIVE AANPASSINGEN (MOBIEL) === */
+@media (max-width: 768px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 15rem;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    float: none;
+  }
+
+  .navbar.open {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: block;
+    padding-left: 1rem;
+    padding-top: 1rem;
+  }
+
+  .navbar.open .close-btn {
+    display: block;
+  }
+
+  .close-btn {
+    font-size: 1.8rem;
+    text-align: right;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+
+  .navbar.open+.hamburger {
+    display: none;
+  }
+
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0;
+  }
+
+  .nav-links li {
+    margin-bottom: 1rem;
+  }
+
+  main {
+    margin-left: 0 !important;
+    padding: 1rem;
+
+  }
+
+  .movie-table,
+  .styled-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .movie-filter-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .detail-card {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .poster-img {
+    max-height: 9.375rem;
+  }
+
+  .profile-img {
+    width: 9.375rem;
+    height: 9.375rem;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .edit-form {
+    width: 100%;
+  }
+}
+
+/* Verberg en toon elementen per apparaat */
+.desktop-only {
+  display: table;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .movie-card-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.05);
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .movie-card-mobile img {
+    width: 100%;
+    max-width: 12rem;
+    border-radius: 0.5rem;
+  }
+
+  .movie-card-mobile h3 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+  }
+
+  .movie-card-mobile button {
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+
+  /* Zoekveld en sorteer kleiner en gecentreerd */
+  .movie-filter-form {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .movie-filter-form input,
+  .movie-filter-form select {
+    width: 90%;
+    font-size: 1rem;
+    padding: 0.4rem;
+  }
+
+  /* Titel centreren */
+  h1 {
+    text-align: center;
+    font-size: 1.75rem;
+  }
+}
+
+/* Verberg en toon per schermformaat */
+.desktop-only {
+  display: table;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Mobiele regisseurkaarten */
+  .director-card-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.05);
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .director-card-mobile img {
+    width: 100%;
+    max-width: 12rem;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+
+  .director-card-mobile h3 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+  }
+
+  .director-card-mobile button {
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+
+  /* Formulier mobiel stylen */
+  .movie-filter-form {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .movie-filter-form input,
+  .movie-filter-form select {
+    width: 90%;
+    font-size: 1rem;
+    padding: 0.4rem;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 1.75rem;
+  }
 }

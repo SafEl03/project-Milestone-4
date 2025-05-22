@@ -37,7 +37,7 @@ Een webapplicatie waarmee je films en regisseurs kunt bekijken, filteren, sorter
 
 ## Online versie
 
-🔗 [https://jouw-link-naar-hosting](https://jouw-link-naar-hosting)
+[https://jouw-link-naar-hosting](https://jouw-link-naar-hosting)
 
 > **Vervang deze link** door jouw Render/Railway/Glitch/Netlify link zodra je gedeployed hebt.
 
