@@ -48,5 +48,5 @@ Een webapplicatie waarmee je films en regisseurs kunt bekijken, filteren, sorter
 1. **Clone de repository**
 
 ```bash
-git clone https://github.com/jouw-gebruikersnaam/movieapp.git
-cd movieapp
+git clone https://github.com/SafEl03/project-Milestone-4.git
+cd movieapp 
